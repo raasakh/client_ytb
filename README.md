@@ -3,7 +3,7 @@
 Клиент для работы с ассетом "YouTubeCoin" в сети Waves
 </br>
 <p align="center">
-  <img src="https://github.com/raasakh/client_ytb/blob/public/wallet.png">
+  <img src="https://github.com/raasakh/client_ytb/blob/master/wallet.png">
 </p>
 
 * Загрузите и распакуйте zip в любой каталог
