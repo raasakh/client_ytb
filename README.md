@@ -1,6 +1,6 @@
 # client_ytb
 
-Клиент для работы с ассетом "YouTubeCoin™ (YTB)" в сети Waves Blochchain
+Клиент для работы с ассетом "YouTubeCoin™ (YTB)" в сети Waves Blockchain
 </br>
 <p align="center">
   <img src="https://github.com/raasakh/client_ytb/blob/main/wallet.gif">
