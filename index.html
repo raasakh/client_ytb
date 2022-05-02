@@ -1,4 +1,3 @@
-
 <!--
 /******************************************************************************
 * Copyright © 2016 The Waves Developers.                                     *
@@ -20,11 +19,11 @@
 <html ng-app="app" ng-csp>
 <head>
   <meta charset="utf-8">
-  <title>YouTubeCoin | Waves Blockchain</title>
+  <title>YouTubeCoin™ (YTB)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/ytb.css">
+  <link rel="stylesheet" href="css/waves-lite-client-styles-0.5.18.css">
 
-  <link href="img/favicon.png" type="image/x-icon" rel="shortcut icon">
+  <link href="img/favicon.ico" type="image/x-icon" rel="shortcut icon">
 </head>
 
 <body ng-controller="homeController as home" ng-switch on="home.screen">
@@ -41,6 +40,19 @@
 
 <!-- LOG IN AREA -->
 <div id="lockscreen" class="userBG" ng-controller="accountsController as accounts" ng-switch-when="accounts-screen" ng-cloak>
+  <div class="banner">
+    <div class="banner-content">
+<!--
+/******************************************************************************
+      <img src="img/warning_icon.svg"/> Google is shutting down its Chrome Web Store.
+      Save your secret phrase (SEED) and start using our new desktop application.
+      Download it from the official Waves site <a href="https://wavesplatform.com" target="_blank">wavesplatform.com</a>,
+      or use the web client <a href="https://beta.wavesplatform.com" target="_blank">beta.wavesplatform.com</a>
+******************************************************************************/
+-->
+    </div>
+  </div>
+
   <table id="lockscreenTable">
 
     <thead>
@@ -221,9 +233,12 @@
     <p class="dialog-text">This feature is still under development and not active during the alpha release.</p>
     <p class="dialog-text">Follow our social media channels to stay up to date with the latest improvements and developments.</p>
     <div class="modal-media">
-      <a href="https://twitter.com/ytbone_platform" target="_blank"><img class="modal-media-img" src="img/twitter_icon.svg" /></a>
-      <a href="https://t.me/ytbplatform" target="_blank"><img class="modal-media-img" src="img/telegram_icon.svg" /></a>
-      <a href="https://vk.com/ytbone_platform" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
+      <a href="https://youtubecoin.blogspot.ru/" target="_blank"><img class="modal-media-img" src="img/blog_icon.svg" /></a>
+      <a href="https://twitter.com/YouTubeCoin_YTB" target="_blank"><img class="modal-media-img" src="img/twitter_icon.svg" /></a>
+      <a href="https://www.facebook.com/YouTubeCoin.YTB" target="_blank"><img class="modal-media-img" src="img/facebook_icon.svg" /></a>
+      <a href="https://t.me/youtubecoin" target="_blank"><img class="modal-media-img" src="img/slack_icon.svg" /></a>
+      <a href="https://t.me/youtubecoin" target="_blank"><img class="modal-media-img" src="img/reddit_icon.svg" /></a>
+      <a href="https://vk.com/vkyoutubecoin" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
     </div>
   </div>
   <!-- /shared blocks-->
@@ -232,7 +247,7 @@
   <header class="fFade noSelect" ng-controller="mainMenuController as menu">
     <img id="topLogoH" src="img/topleftlogo_hor.svg" alt="Waves platform logo horizontal" />
     <div id="logoNversion2">
-      <img src="img/topleftlogo2.svg" />
+      <img src="img/topleftlogo.svg" />
       <p ng-class='{testnet: isTestnet()}'>{{::home.title}} <span class="wlcversion">{{::home.version}}</span></p>
     </div>
     <span id="version" class="centerIt">
@@ -276,6 +291,9 @@
           <input id="addressBackup" class="wInput" type="text" readonly ng-model="menu.address"/>
         </form>
       </div>
+      <a ng-click="home.featureUnderDevelopment()">
+        <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-preferences.svg" alt="Preferences" title="Preferences"/>
+      </a>
       <a ng-click="menu.showProfileDialog()">
         <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-profile.svg" alt="User profile" title="User profile"/>
       </a>
@@ -329,15 +347,15 @@
     <!-- APPLICATION TAB SELECTORS -->
     <section id="tabs" class="fFade noSelect">
       <div id="tabs-Iconset" class="centerIt">
-        <span waves-tab
-              on-select="nav.changeTab(pageId)"
-              current-page-id="nav.currentTab"
-              page-id="wallet"
-              caption="'Wallet tab'"
-              tooltipster
-              tooltip-html
-              tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>Wallet</u></center><br/>Area containing the main wallets."></span>
+                    <span waves-tab
+                          on-select="nav.changeTab(pageId)"
+                          current-page-id="nav.currentTab"
+                          page-id="wallet"
+                          caption="'Wallet tab'"
+                          tooltipster
+                          tooltip-html
+                          tooltip-theme="tooltipster-theme3"
+                          tooltip-title="<center><u>Wallet</u></center><br/>Area containing the main wallets."></span>
         <span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
@@ -356,16 +374,17 @@
               tooltip-html
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Waves Decentralized Exchange</u></center><br/>Access to Waves markets where you can<br/>conveniently buy, sell and trade tokens."></span>
-      <!--  <span waves-tab
+        <span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
-              page-id="leasing"
-              caption="'Waves leasing tab'"
+              page-id="staking"
+              caption="'Waves staking tab'"
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>Leasing</u></center><br/>Lease your Waves<br/>to another wallet."></span>
-              -->
+              tooltip-title="<center><u>Staking</u></center><br/>Staking your Waves<br/>to another wallet."></span>
+        <!--<span waves-tab on-select="nav.changeTab(pageId)" current-page-id="nav.currentTab" page-id="voting" caption="'Voting tab'" tooltipster tooltip-html-->
+        <!--tooltip-theme="tooltipster-theme3" tooltip-title="<center><u>Voting Area</u></center><br/>Decentralized voting utility."></span>-->
         <span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
@@ -384,7 +403,9 @@
               tooltip-html
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Tokens Creation tab</u></center><br/>Area in which assets can be created."></span>
-      <span waves-tab
+        <!--<span waves-tab on-select="nav.changeTab(pageId)" current-page-id="nav.currentTab" page-id="messages" caption="'Messages tab'" tooltipster tooltip-html-->
+        <!--tooltip-theme="tooltipster-theme3" tooltip-title="<center><u>Decentralized Messenger</u></center><br/>Allows private communication between Waves users."></span>-->
+        <span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="community"
@@ -539,8 +560,8 @@
                                     tooltipster
                                     tooltip-theme="tooltipster-theme1"
                                     ngclipboard
-                                    data-clipboard-text="3P7qtv5Z7AMhwyvf5sM6nLuWWypyjVKb7Us"
-                                    ngclipboard-success="clipboardOk()">3P7qtv5Z7AMhwyvf5sM6nLuWWypyjVKb7Us</span><br/>
+                                    data-clipboard-text="3PFmmWeGPw5BqCbj7n8kv6P7JhRb337spUL"
+                                    ngclipboard-success="clipboardOk()">3PFmmWeGPw5BqCbj7n8kv6P7JhRb337spUL</span><br/>
                 <br/>
                 Fees are 1% from the amount transferred<br/>
                 <br/>
@@ -625,6 +646,8 @@
             </div>
           </div>
 
+          <!--
+          /******************************************************************************
           <div class="noDisp">
             <div id="digilira-dialog" waves-dialog ok-button-caption="CLOSE" cancel-button-visible="false">
               <h2 class="sectionHeader">TURKISH LIRA</h2>
@@ -632,15 +655,8 @@
               <p class="dialog-text">You can only use Turkish Lira gateway if you have Turkish citizenship.</p>
             </div>
           </div>
-
-          <div class="noDisp">
-            <div id="ytb-dialog" waves-dialog ok-button-caption="CLOSE" cancel-button-visible="false">
-              <h2 class="sectionHeader">YouTubeCoin</h2>
-              <p class="dialog-text">Please visit <a href="https://ytb.one" target="_blank">Ytb</a> gateway.</p>
-              <p class="dialog-text">You can only use Ytb gateway if you have Russia citizenship.</p>
-            </div>
-          </div>
-
+          ******************************************************************************/
+          -->
           <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="LTC">
             <div id="deposit-ltc-dialog" waves-dialog ok-button-caption="CLOSE" cancel-button-visible="false">
               <h2 class="sectionHeader">DEPOSIT: LTC</h2>
@@ -683,33 +699,12 @@
             </div>
           </div>
 
-          <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="BCH">
-            <div id="deposit-bch-dialog" waves-dialog ok-button-caption="CLOSE" cancel-button-visible="false">
-              <h2 class="sectionHeader">DEPOSIT: BCH</h2>
-              <p class="dialog-text">To deposit BCH to your Waves account, please send BCH to the address below.<br/>
-                The minimum amount of deposit is <span class="fontBold">{{deposit.zec.minimumAmount}} BCH</span>.</p>
-              <table class="wavesTable bitcoin-requisites">
-                <tbody>
-                <tr>
-                  <td><b>{{deposit.bch.cashAddress}}</b></td>
-                </tr>
-                </tbody>
-              </table>
-              <p class="dialog-text">Enter this address into your BCH client or wallet. Once the transaction is confirmed, <br/>
-                the gateway will process the transfer of BCH to a token in your Waves account.</p>
-              <p class="dialog-text">Please note that the gateway doesn't apply any fees for this operation.</p>
-              <div class="textCenter">
-                <waves-qr-code class="center" size="180" value="deposit.bch.cashAddress"></waves-qr-code>
-              </div>
-            </div>
-          </div>
-
-          <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="EUR">
+          <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="USDN">
             <div id="deposit-eur-dialog" waves-dialog ok-button-caption="CLOSE" cancel-button-visible="false">
-              <h2 class="sectionHeader">DEPOSIT: EUR</h2>
+              <h2 class="sectionHeader">DEPOSIT: USDN</h2>
               <p class="dialog-text textCenter">VERIFICATION</p>
               <p class="dialog-text textCenter">
-                In order to deposit Euros directly from your bank<br/>
+                In order to deposit Neutrinos directly from your bank<br/>
                 account through SEPA transfer you MUST get verified<br/>
                 by our partner <a href="https://www.idnow.eu/" target="_blank">IDNow.eu</a>
               </p>
@@ -741,12 +736,12 @@
             </div>
           </div>
 
-          <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="USD">
+          <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="USDT">
             <div id="deposit-usd-dialog" waves-dialog ok-button-caption="CLOSE" cancel-button-visible="false">
-              <h2 class="sectionHeader">DEPOSIT: USD</h2>
+              <h2 class="sectionHeader">DEPOSIT: USDT</h2>
               <p class="dialog-text textCenter">VERIFICATION</p>
               <p class="dialog-text textCenter">
-                In order to deposit USD directly from your bank<br/>
+                In order to deposit USDT directly from your bank<br/>
                 account through wire transfer you MUST get verified<br/>
                 by our partner <a href="https://www.idnow.eu/" target="_blank">IDNow.eu</a>
               </p>
@@ -840,7 +835,7 @@
               <tr ng-show="assetList.noData">
                 <td colspan="5">You do not own/have not created any assets.</td>
               </tr>
-              <tr ng-show="!assetList.noData" ng-repeat="tx in assetList.assets | antiSpam:'id' | asset track by tx.id">
+              <tr ng-show="!assetList.noData" ng-repeat="tx in assetList.assets | asset track by tx.id">
                 <td>
                   <span>{{tx.name}}</span>
                 </td>
@@ -1119,11 +1114,11 @@
         </waves-page>
         <!-- / DEX TAB -->
 
-        <!-- LEASING TAB -->
-        <waves-page ng-switch-when="leasing" page-title="Leasing">
-          <waves-leasing></waves-leasing>
+        <!-- STAKING TAB -->
+        <waves-page ng-switch-when="staking" page-title="Staking">
+          <waves-staking></waves-staking>
         </waves-page>
-        <!-- / LEASING TAB -->
+        <!-- / STAKING TAB -->
 
         <!-- VOTING TAB -->
         <div id="mBB-voting" class="mBB-content" ng-switch-when="voting">
@@ -1288,7 +1283,7 @@
   </div>
 </div> <!-- Wrapper div END -->
 
-<script src="js/ytb.js"></script>
+<script src="js/waves-lite-client-mainnet-0.5.18.js"></script>
 
 
 </body>
