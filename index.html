@@ -377,8 +377,8 @@
         <span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
-              page-id="staking"
-              caption="'Waves staking tab'"
+              page-id="leasing"
+              caption="'Waves leasing tab'"
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
@@ -847,8 +847,8 @@
                   <button class="wButton wButton-neg fade" ng-disabled="!tx.formatted.canReissue" ng-click="assetList.assetReissue(tx.id)">REISSUE</button><span class="divider-2"></span>
                   <button class="wButton wButton-neg fade" ng-click="assetList.assetDetails(tx.id)">DETAILS</button><span class="divider-2"></span>
                   <!-- TODO: remove MASS PAY feature or re-engineer it using a centralized service
-                  <button class="wButton wButton-neg fade" ng-click="assetList.assetMassPay(tx.id)">MASS PAY</button>
-                  -->
+                  <button class="wButton wButton-neg fade" ng-click="assetList.assetMassPay(tx.id)">MASS PAY</button> -->
+                 
                 </td>
               </tr>
               </tbody>
@@ -1115,8 +1115,8 @@
         <!-- / DEX TAB -->
 
         <!-- STAKING TAB -->
-        <waves-page ng-switch-when="staking" page-title="Staking">
-          <waves-staking></waves-staking>
+        <waves-page ng-switch-when="leasing" page-title="Staking">
+          <waves-leasing></waves-leasing>
         </waves-page>
         <!-- / STAKING TAB -->
 
